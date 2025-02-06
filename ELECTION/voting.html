@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-box, .voting-container {
+            background-color:rgb(22, 29, 224);
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 50px;
+        }
+        .login-box .header, .voting-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .login-box input, .voting-container select {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 50px;
+        }
+        .login-box button, .voting-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: paleturquoise;
+            color: white;
+            font-size: 16px;
+            border-radius: 50px;
+            cursor: pointer;
+        }
+        .login-box button:hover, .voting-container button:hover {
+            background-color: #e40c0c;
+        }
+        .voting-container {
+            display: none;
+        }
+        .back-button {
+            font-size: 16px;
+            background-color: #2c0ce4;
+            cursor: pointer;
+            
+           
+        }
+        .back-button-container {
+            margin-top: auto;
+            margin-bottom: 20px;
+        }
+        marquee {
+            color: red;
+            font-size: large;
+            font-weight: bold;
+            font-family: sans-serif;
+        }
+        .container input {
+            background-color: rgb(47, 13, 240);
+            border-radius: 50px;
+        }
+    </style>
+    <script>
+        function validateCredentials() {
+            var studentName = document.getElementById("StudentName").value;
+            var admissionNo = document.getElementById("AdmissionNo").value;
+            if (studentName === "" || admissionNo === "" || id === "") {
+                alert("Please enter both your Student Name and Admission Number.");
+                return false;
+            }
+            document.querySelector('.login-box').style.display = 'none';
+            document.querySelector('.voting-container').style.display = 'block';
+            return false; 
+        }
+    </script>
+</head>
+<body>
+   
+    <div class="login-box">
+        <div class="header">Enter your details here</div>
+        <P>LOG TO VOTE</P>
+        <form onsubmit="return validateCredentials()">
+            <input type="text" id="StudentName" name="StudentName" placeholder="Enter your Student Name">
+            <input type="text" id="AdmissionNo" name="AdmissionNo" placeholder="Enter your Admission No">
+            <button type="submit">SUBMIT</button><br><br>
+            <marquee scrollamount="10" direction="viewport">  
+                MAWEGO LOGIN PLATFORM     
+            </marquee>
+                
+        </form>
+    </div> 
+    <div class="voting-container">
+        <fieldset>
+            <div class="container">
+                    <form id="voteForm" action="insert.php" method="post">
+                        <center>FILL THIS BEFORE YOU VOTE</center>
+                        <fieldset>
+                    <input type="text" id="id" name="id" placeholder="Enter serial NO"><br><br>
+                    <input type="text" id="StudentName" name="StudentName" placeholder="Enter your Student Name"><br><br>
+                    <input type="text" id="AdmissionNo" name="AdmissionNo" placeholder="Enter your Admission No"><br>
+                    <br>
+                </fieldset>
+                <h4>PRESIDENT</h4>
+                    <label for="president">Choose president:</label>
+                    <select name="president" id="president">
+                        <option value="FRED">FRED</option>
+                        <option value="BECKY">BECKY</option>
+                        <option value="FAITH">FAITH</option>
+                        <option value="MUMMY">MUMMY</option>
+                    </select>
+                    <br><br>
+
+                    <h4>DEPUTY PRESIDENT</h4>
+                    <label for="deputy_president">Choose Deputy president:</label>
+                    <select name="deputy_president" id="deputy_president">
+                        <option value="BYRON">BYRON</option>
+                        <option value="MAURINE">MAURINE</option>
+                        <option value="LUCKY">LUCKY</option>
+                        <option value="JADUONG">JADUONG</option>
+                    </select>
+                    <br><br>
+
+                    <h4>CS MALE AFFAIRS</h4>
+                    <label for="male_affairs">Choose Male Affairs:</label>
+                    <select name="male_affairs" id="male_affairs">     nn
+                        <option value="ALEX">ALEX</option>
+                        <option value="JACKY">JACKY</option>
+                        <option value="ACHIENG">ACHIENG</option>
+                        <option value="MARY">MARY</option>
+                    </select>
+                    <br><br>
+
+                    <h4>CS FEMALE AFFAIRS</h4>
+                    <label for="female_affairs">Choose Female Affairs:</label>
+                    <select name="female_affairs" id="female_affairs">
+                        <option value="JOHN">JOHN</option>
+                        <option value="UGARTE">UGARTE</option>
+                        <option value="RASWHFORD">RASHFORD</option>
+                        <option value="EVERLINE">EVERLINE</option>
+                    </select>
+                    <br><br>
+                    <h4>CS INFORMATION </h4>
+                    <label for="information">Choose information:</label>
+                    <select name="information" id="information">
+                        <option value="BRUNO">BRUNO</option>
+                        <option value="ANTONY">ANTONY</option>
+                        <option value="TINAH">TINAH</option>
+                        <option value="MILLICENT">MILLICENT</option>
+                        <option value="REMBO">REMBO</option>
+                        <option value="BECKY">BECKY</option>
+                    </select>
+                    <br><br>
+
+                    <button type="submit">Vote</button>
+                    
+                </form>
+                
+                <div id="result"></div>
+            </div>
+        </fieldset>
+    </div>
+
+    <marquee scrollamount="10" direction="right">  
+       VOTE WISELY,YOUR VOTE,YOUR FUTURE TOMORROW!!
+    </marquee>
+    <script src="script.js"></script>
+    <div>
+    <button class="back-button" onclick="goback()">GO BACK</button>
+</div>
+    <script>
+        function goback(){
+            window.history.back();
+        }
+    </script>
+</body>
+</html>

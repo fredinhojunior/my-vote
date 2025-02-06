@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-box, .voting-container {
+            background-color:gray;
+            width: 300px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            border-radius: 10px;
+        }
+        .login-box .header, .voting-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .login-box input, .voting-container select {
+            display: block;
+            width: 90%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .login-box button, .voting-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: paleturquoise;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .login-box button:hover, .voting-container button:hover {
+            background-color: #218838;
+        }
+        .voting-container {
+            display: none;
+        }
+    </style>
+    <script>
+        function validateCredentials() {
+            var studentName = document.getElementById("StudentName").value;
+            var studentName = document.getElementById("StudentName").value;
+            var admissionNo = document.getElementById("AdmissionNo").value;
+            if (studentName === "" || admissionNo === "" || id === "") {
+                alert("Please enter both your Student Name and Admission Number.");
+                return false;
+            }
+            document.querySelector('.login-box').style.display = 'none';
+            document.querySelector('.voting-container').style.display = 'block';
+            return false; 
+        }
+    </script>
+</head>
+<body>
+    <marquee scrollamount="10">
+    </marquee>
+    <div class="login-box">
+        <div class="header">Enter your details here</div>
+        <form onsubmit="return validateCredentials()">
+            <input type="text" id="id" name="id">
+            <input type="text" id="StudentName" name="StudentName" placeholder="Enter your Student Name">
+            <input type="text" id="AdmissionNo" name="AdmissionNo" placeholder="Enter your Admission No">
+            <button type="submit">Submit</button>
+        </form>
+    </div> 
+    <div class="voting-container">
+        <fieldset>
+            <div class="container">
+                <h4>PRESIDENT</h4>
+                <form id="voteForm" action="insert.php" method="post">
+                    <label for="president">Choose president:</label>
+                    <select name="president" id="president">
+                        <option value="David">David</option>
+                        <option value="Mike">Mike</option>
+                        <option value="Vincent">Vincent</option>
+                        <option value="Vovax">Vovax</option>
+                    </select>
+                    <br><br>
+
+                    <h4>DEPUTY PRESIDENT</h4>
+                    <label for="deputy_president">Choose Deputy president:</label>
+                    <select name="deputy_president" id="deputy_president">
+                        <option value="Byron">Byron</option>
+                        <option value="Zack">Zack</option>
+                        <option value="Bryan">Bryan</option>
+                        <option value="Julius">Julius</option>
+                    </select>
+                    <br><br>
+
+                    <h4>Cs of Male Affairs</h4>
+                    <label for="male_affairs">Choose Male Affairs:</label>
+                    <select name="male_affairs" id="male_affairs">     nn
+                        <option value="Geofry">Geofry</option>
+                        <option value="Terry">Terry</option>
+                        <option value="Kevin">Kevin</option>
+                        <option value="Davine">Davine</option>
+                    </select>
+                    <br><br>
+
+                    <h4>Cs of Female Affairs</h4>
+                    <label for="female_affairs">Choose Female Affairs:</label>
+                    <select name="female_affairs" id="female_affairs">
+                        <option value="Annah">Annah</option>
+                        <option value="Kerry">Kerry</option>
+                        <option value="Judith">Judith</option>
+                        <option value="Talia">Talia</option>
+                    </select>
+                    <br><br>
+
+                    <button type="submit">Vote</button>
+                </form>
+                <div id="result"></div>
+            </div>
+        </fieldset>
+    </div>
+
+    <marquee scrollamount="10" direction="right">       
+    </marquee>
+    <script src="script.js"></script>
+</body>
+</html>

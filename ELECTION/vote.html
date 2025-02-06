@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background-image: url('IMAGES/Screenshot_20240721-111918.jpg');
+        height: 20vh;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        z-index: -1;
+    }
+    
+    header {
+        background-color: #4CAF50;
+        color: rgb(68, 16, 212);
+        padding: 1em;
+        text-align: center;
+        
+    }
+    
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #333;
+    }
+    
+    nav ul li {
+        margin: 0 1em;
+    }
+    
+    nav ul li a {
+        color: rgb(177, 15, 15);
+        text-decoration: none;
+        padding: 1em;
+        display: block;
+    }
+    
+    nav ul li a:hover {
+        background-color: #111;
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1em;
+        padding: 1em;
+    }
+    
+    .entity-card {
+        background-color: #c5acdd8c;
+        border: 2px solid #220ddbd5;
+        padding: 20px;
+        border-radius: 50px;
+         }
+         
+    
+    .entity-card h2 {
+        margin-top: 0;
+    }
+    
+    footer {
+        background-color: #4114e6;
+        color: white;
+        text-align: center;
+        padding:0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+  
+
+    }
+    .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background-image: url('IMAGES/1708070465380.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        form {
+            background-color: rgba(24, 40, 136, 0.89);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        fieldset {
+            border: none;
+            display: flex;
+            flex-direction: column;
+        }
+
+        legend {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        label {
+            margin: 10px 0 5px;
+        }
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+   
+        </style>
+    
+    <header>
+        <h1>ONLINE VOTING SYSTEM DASHBOARD</h1>
+       
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#REGISTRATION">REGISTRATION</a></li>
+            <li><a href="#PANEL">PANEL</a></li>
+            <li><a href="results.html">RESULTS</a></li>
+            <li><a href="#TEAM MEMBERS">TEAM MEMBERS</a></li>
+            <li><a href="#BALLOT STRUCTURE">BALLOT STRUCTURE</a></li>
+            <li><a href="#CONTACT US">CONTACT US</a></li>
+            <li><a href="#ABOUT US">ABOUT US</a></li>
+            <li><a href="#ABOUT ELECTIONS">ABOUT ELECTIONS</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="entity1" class="entity-card 1">
+            <h2>REGISTRATION</h2>
+          
+            <fieldset>
+                <form class="login-form" id="loginForm">
+                    <div class="error" id="errorMessage"></div>
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <button type="submit">Submit</button>
+                </form>
+            </fieldset>
+        
+            <script>
+                document.getElementById('loginForm').addEventListener('submit', function(event) {
+                    event.preventDefault(); // Prevent the default form submission
+        
+                    const username = document.getElementById('username').value;
+                    const password = document.getElementById('password').value;
+                    const errorMessage = document.getElementById('errorMessage');
+        
+                    if (username === 'MARK ONGURU' && password === '11437MUM') {
+                        alert('Login successful!');
+                        window.location.href = 'voter.html'; // Redirect to another page
+                    } else {
+                        errorMessage.textContent = 'Invalid username or password.';
+                    }
+                });
+            </script>
+            </section>
+        <section id="entity2" class="entity-card 2">
+            <h2>PANEL</h2>
+           
+            <p><i>Kindly navigate through our entire system to know more about our panel pertaining 
+                to this system.
+            </i></p>
+            <b>AS A VOTER BE AWARE OF;</b>
+            <select>
+                <option>USER AUTHENTICATION eg password</option>
+                <option>VOTER ELIGIBILITY</option>
+                <option>VOTER INSTRUCTION</option>
+                <option>CANDICATE INFORMATION</option>
+                </select>
+        </section>
+        <section id="entity3" class="entity-card 3">
+            <h2>RESULTS</h2>
+            <p><i><b>To view the results for the election,kindly use the navigation bar for RESULTS to view 
+                the outcome results for your candidates.
+            </i></p></b>
+        </section>
+        <section id="entity4" class="entity-card 4">
+           
+                <h2>TEAM MEMBERS</h2>
+                <fieldset>
+                    <b>
+                    <h1>DEVELOPERS</h1>
+                    <p><img src='IMAGES/IMG_20221231_180934_980.jpg' alt="img" width="30"
+                    height="40" border-radius: 50px; margin-right: 20px; style='float:left; padding: 6px;'/> <strong>El
+                    Capitan</strong> 
+                    .</p>
+                   
+                    NAME:FRED<br>
+                    EMAIL:fredjunior28@gmail.com
+                    
+                    <p><img src='IMAGES/1708070465380.jpg' alt="img" width="30"
+                    height="45" style='float:left; padding: 6px;'/><strong>El
+                        Capitan</strong> 
+                   .</p>
+                  
+                    NAME:BYRON<br>
+                    EMAIL:byron@gmail.com
+                    </b>
+                    </fieldset>
+                        
+
+                    
+        </section>
+        <section id="entity5" class="entity-card 5">
+            <h2>BALLOT STRUCTURE</h2>
+            <p>Details about Entity 5...</p>
+        </section>
+        <section id="entity6" class="entity-card 6">
+            <h2>CONTACT US</h2>
+            <img src="IMAGES/1634028194785.jpg" alt="img" width="50">
+            <p>For more assistant or clarrification about this voting sysytem,kindly reach us through:
+                <p>  ADRESS:<a href="mail to:fredihnojunior28@gmaiol.com">fredinhojunior28@gmail.com</a>
+            </p>
+            <br><br>
+        
+        </section>
+        <section id="entity7" class="entity-card 7">
+            
+            <h2>ABOUT US</h2><img src="IMAGES/TTR2.webp" alt="image"width="30"position="center">
+
+            <p>The project is under the castody of the following;
+                <table>
+                    <table border="1">
+                        <tr>
+                            <td>NAMES</td>
+                            <td>EMAIL</td>
+                            <td>NUMBER</td>
+                        </tr>
+                        <tr>
+                        <td>FRED ONGURU</td>
+                        <td>fred@gmail.com</td>
+                        <td>0728411299</td>
+                        </tr>
+                        <tr>
+                            <td>BYRON OUMA</td>
+                            <td>fred@gmail.com</td>
+                            <td>0728411299</td>
+                            </tr>
+
+
+                </table>
+            </p>
+        </section>
+        <section id="entity8" class="entity-card 8">
+           
+            
+            <h2>ABOUT ELECTIONS</h2>
+            
+            <p>
+              Kindly click the link below to read materials about elections;
+              </p>
+              <p>
+                <a href="https://www.jumia.com" target="_blank">Visit Jumia</a>
+             <p>Click the link below to access election materials:</p>
+             <a href="https://example.com/election-materials" target="_blank">Access Election Materials</a>
+             <p>Click the link below to download the election materials:</p>
+             <a href="path/to/election-materials.pdf" download="Election_Materials.pdf">Download Election Materials</a>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024-2025  Voting Dashboard By FREDIE And BYRON</p>
+    </footer>
+</body>
+</html>
+
+

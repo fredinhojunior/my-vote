@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Election Results</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+            color: #495057;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 1px solid #dee2e6;
+        }
+        h1 {
+            font-size: 24px;
+            color: #343a40;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section h2 {
+            font-size: 20px;
+            color: #495057;
+            margin-bottom: 10px;
+        }
+        .section p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+        .candidate-results {
+            margin-bottom: 20px;
+        }
+        .candidate-results .candidate {
+            margin-bottom: 15px;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: #e9ecef;
+            border: 1px solid #ced4da;
+            background-color: aliceblue;
+        }
+        .summary {
+            font-size: 18px;
+            color: #343a40;
+            border-top: 2px solid #007bff;
+            padding-top: 10px;
+            margin-top: 20px;
+        }
+        .login-container {
+            margin: 20px;
+            text-align: center;
+            color: red;
+        }
+        .login-container input {
+            padding: 10px;
+            margin: 5px;
+            font-size: 16px;
+            background-color: aliceblue;
+        }
+        .login-container button {
+            background-color: green;
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .login-container button:hover {
+            background-color: #0056b3;
+        }
+        .error {
+            color: #dc3545;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form id="voteForm" action="result.php" method="post">
+        <h1>Election Results</h1>
+        
+        <div id="loginSection" class="login-container">
+            <h2>Please Login to View Results</h2>
+            <div class="error" id="loginErrorMessage"></div>
+            <input type="text" id="username" placeholder="Username">
+            <input type="password" id="password" placeholder="Password">
+            <button onclick="login()">Login</button>
+        </div>
+        
+        <div id="resultsSection" style="display: none;">
+            <div class="section" id="presidentResults">
+                <h2>President Results</h2>
+                <div class="candidate-results" id="presidentResultsContainer"></div>
+            </div>
+            <div class="section" id="deputyPresidentResults">
+                <h2>Deputy President Results</h2>
+                <div class="candidate-results" id="deputyPresidentResultsContainer"></div>
+            </div>
+            <!-- Add more sections for other positions if needed -->
+            
+            <div class="summary" id="summaryContainer">
+                <!-- Summary will be dynamically inserted here -->
+            </div>
+        </div>
+    </form>
+    </div>
+
+    <script>
+        // Sample data for demonstration
+        const results = {
+            president: [
+                { candidate: 'FRED', votes: 1200 },
+                { candidate: 'BYRON', votes: 850 },
+                { candidate: 'MARK', votes: 900 }
+            ],
+            deputyPresident: [
+                { candidate: 'ROSE', votes: 950 },
+                { candidate: 'ALEX', votes: 1100 },
+                { candidate: 'MARY', votes: 800 }
+            ]
+        };
+
+        const authorizedUsers = {
+            'Byron': 'byron',
+            'student': 'student'
+        };
+
+        function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const loginErrorMessage = document.getElementById('loginErrorMessage');
+            
+            if (authorizedUsers[username] === password) {
+                document.getElementById('loginSection').style.display = 'none';
+                document.getElementById('resultsSection').style.display = 'block';
+                displayResults();
+            } else {
+                loginErrorMessage.textContent = 'Invalid username or password.';
+            }
+        }
+
+        function displayResults() {
+            const presidentResultsContainer = document.getElementById('presidentResultsContainer');
+            const deputyPresidentResultsContainer = document.getElementById('deputyPresidentResultsContainer');
+            const summaryContainer = document.getElementById('summaryContainer');
+            
+            let totalVotesPresident = 0;
+            let totalVotesDeputyPresident = 0;
+            let winnerPresident = { candidate: '', votes: 0 };
+            let winnerDeputyPresident = { candidate: '', votes: 0 };
+
+            // Clear previous results
+            presidentResultsContainer.innerHTML = '';
+            deputyPresidentResultsContainer.innerHTML = '';
+            summaryContainer.innerHTML = '';
+
+            // Display President results
+            results.president.forEach(result => {
+                totalVotesPresident += result.votes;
+                if (result.votes > winnerPresident.votes) {
+                    winnerPresident = result;
+                }
+                presidentResultsContainer.innerHTML += `
+                    <div class="candidate">
+                        <h3>${result.candidate}</h3>
+                        <p>Votes: ${result.votes}</p>
+                    </div>
+                `;
+            });
+
+            // Display Deputy President results
+            results.deputyPresident.forEach(result => {
+                totalVotesDeputyPresident += result.votes;
+                if (result.votes > winnerDeputyPresident.votes) {
+                    winnerDeputyPresident = result;
+                }
+                deputyPresidentResultsContainer.innerHTML += `
+                    <div class="candidate">
+                        <h3>${result.candidate}</h3>
+                        <p>Votes: ${result.votes}</p>
+                    </div>
+                `;
+            });
+
+            // Display summary
+            summaryContainer.innerHTML = `
+                <p><strong>Total Votes for President:</strong> ${totalVotesPresident}</p>
+                <p><strong>Winner for President:</strong> ${winnerPresident.candidate} with ${winnerPresident.votes} votes</p>
+                <p><strong>Total Votes for Deputy President:</strong> ${totalVotesDeputyPresident}</p>
+                <p><strong>Winner for Deputy President:</strong> ${winnerDeputyPresident.candidate} with ${winnerDeputyPresident.votes} votes</p>
+            `;
+        }
+    </script>
+</body>
+</html>
+
+
+

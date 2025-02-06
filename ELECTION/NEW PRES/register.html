@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .entity-card {
+            background-color: black;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        form {
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        label {
+            font-weight: bold;
+            color: #555;
+        }
+        
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        
+        button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #0056b3;
+        }
+        
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="register" class="entity-card">
+        <h2>REGISTER</h2>
+        <div class="container">
+            <form onsubmit="validateRegistration(event)">
+                <label for="register-username">Username:</label>
+                <input type="text" id="register-username" name="username" placeholder="Username" required><br>
+                
+                <label for="register-email">Email:</label>
+                <input type="email" id="register-email" name="email" placeholder="Email" required><br>
+                
+                <label for="register-password">Password:</label>
+                <input type="password" id="register-password" name="password" placeholder="Password" required><br>
+                
+                <label for="register-phone">Phone Number:</label>
+                <input type="text" id="register-phone" name="phone" placeholder="Phone Number"><br>
+                
+                <button type="submit">Register</button>
+            </form>
+            <br>
+            <p>Already have an account? <a href="vote.html" class="login-link">Login here</a></p>
+            <br>
+            <p>For more information about our services or to explore additional opportunities, visit:</p>
+            <a href="https://www.jumia.com" target="_blank" class="external-link">Join Jumia</a>
+        </div>
+    </section>

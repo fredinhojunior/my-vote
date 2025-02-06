@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    header {
+        background-color: #4CAF50;
+        color: rgb(68, 16, 212);
+        padding: 1em;
+        text-align: center;
+        
+    }
+    
+    nav ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        background-color: #333;
+    }
+    
+    nav ul li {
+        margin: 0 1em;
+    }
+    
+    nav ul li a {
+        color: rgb(177, 15, 15);
+        text-decoration: none;
+        padding: 1em;
+        display: block;
+    }
+    
+    nav ul li a:hover {
+        background-color: #111;
+    }
+    
+    main {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1em;
+        padding: 1em;
+    }
+    
+    .entity-card {
+        background-color: hsl(270, 50%, 98%);
+        border: 1px solid #ddd;
+        padding: 1em;
+        border-radius: 5px;
+    }
+    
+    .entity-card h2 {
+        margin-top: 0;
+    }
+    
+    footer {
+        background-color: #4114e6;
+        color: white;
+        text-align: center;
+        padding:0;
+        position: fixed;
+        width: 100%;
+        bottom: 0;
+    }
+    </style>
+    
+    <header>
+        <h1>MY VOTING DASHBOARD</h1>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#ABOUT ELECTION">ABOUT ELECTION</a></li>
+            <li><a href="#PANEL">PANEL</a></li>
+            <li><a href="#TEAM MEMBERS">TEAM MEMBERS</a></li>
+            <li><a href="#BALLOT STRUCTURE">BALLOT STRUCTURE</a></li>
+            <li><a href="#CONTACT US">CONTACT US</a></li>
+            <li><a href="#ABOUT US">ABOUT US</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="entity1" class="entity-card">
+            <h2>ABOUT ELECTION</h2>
+            <p>ELECTION IS A DEMOCRATIC RIGHT WHICH SHOULD BE EXERCISED AS PER YOUR WISH</p>
+        </section>
+        <section id="entity2" class="entity-card">
+            <h2>PANEL</h2>
+            <p>Details about Entity 2...</p>
+        </section>
+        
+        </section>
+        <section id="entity4" class="entity-card">
+            <h2>TEAM MEMBERS</h2>
+            <p>Details about Entity 4...</p>
+        </section>
+        <section id="entity5" class="entity-card">
+            <h2>BALLOT STRUCTURE</h2>
+            <p>Details about Entity 5...</p>
+        </section>
+        <section id="entity6" class="entity-card">
+            <h2>CONTACT US</h2>
+            <p>For more assistant or clarrification about this voting sysytem,kindly reach us through:
+                <p><a href="mail to:fredihnojunior28@gmaiol.com">fredinhojunior28@gmail.com</a>
+            </p>
+        </section>
+        <section id="entity7" class="entity-card">
+            <h2>ABOUT US</h2>
+            <p>The project is under the castody of the following;
+                <table>
+                    <table border="1">
+                        <tr>
+                            <td>NAMES</td>
+                            <td>EMAIL</td>
+                            <td>NUMBER</td>
+                        </tr>
+                        <tr>
+                        <td>FRED ONGURU</td>
+                        <td>fred@gmail.com</td>
+                        <td>0728411299</td>
+                        </tr>
+                        <tr>
+                            <td>BYRON OUMA</td>
+                            <td>fred@gmail.com</td>
+                            <td>0728411299</td>
+                            </tr>
+
+                </table>
+            </p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024  Voting Dashboard By FREDIE And BYRON</p>
+    </footer>
+</body>
+</html>
+
+
